@@ -16,11 +16,16 @@ public class Primer {
 	}
 	public static void LCS(String[] x , String[] y) {
 		int[][] c = new int[x.length+1][y.length+1];
+		System.out.println(c.length);
+		System.out.println(c[0].length);
+
 		matriz(c);
+		System.out.println("Matriz despues");
 		for(int i=1;i<c.length;i++) {
-			for(int j=1;i<c[i].length;j++) {
-				if(x[i].equals(y[j]))
+			for(int j=1;j<c[i].length;j++) {
+				if(x[i-1].equals(y[j-1]))
 					c[i][j]=c[i-1][j-1]+1;
+				
 			}
 		}
 		matriz(c);
