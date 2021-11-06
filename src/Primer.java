@@ -25,6 +25,8 @@ public class Primer {
 			for(int j=1;j<c[i].length;j++) {
 				if(x[i-1].equals(y[j-1]))
 					c[i][j]=c[i-1][j-1]+1;
+				else
+					c[i][j]=Math.max(c[i][j-1],c[i-1][j]);
 				
 			}
 		}
