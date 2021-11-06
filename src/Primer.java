@@ -31,8 +31,30 @@ public class Primer {
 			}
 		}
 		matriz(c);
+		System.out.println(cadena(c,5,4,x,y));
+
 		
 		
+	}
+	public static String cadena(int [][] matriz,int n ,int m,String[] x, String[]y) {
+		int i=n; int k=m;
+		String str = "";
+		while(i>0 && k>0) {
+			
+			if(!x[i-1].equals(y[k-1])) {
+				if(matriz[i][k]==matriz[i-1][k])
+					i--;
+				if(matriz[i][k]==matriz[i][k-1])
+					k--;
+			}
+			else {
+				str= x[i-1]+str;
+				i--;
+				k--;
+			}			
+				
+		}
+		return str;
 	}
 	public static void matriz(int[][] c) {
 		for(int i=0;i<c.length;i++) {
