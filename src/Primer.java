@@ -40,7 +40,8 @@ public class Primer {
 		int i=n; int k=m;
 		String str = "";
 		while(i>0 && k>0) {
-			
+			System.out.println("i : "+i+" k : "+k);
+			System.out.println("x "+ x[i-1]+" y: "+y[k-1]);
 			if(!x[i-1].equals(y[k-1])) {
 				if(matriz[i][k]==matriz[i-1][k])
 					i--;
@@ -49,6 +50,7 @@ public class Primer {
 			}
 			else {
 				str= x[i-1]+str;
+				System.out.println("str "+str);
 				i--;
 				k--;
 			}			
