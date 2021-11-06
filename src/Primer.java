@@ -41,11 +41,11 @@ public class Primer {
 		String str = "";
 		while(i>0 && k>0) {
 			System.out.println("i : "+i+" k : "+k);
-			System.out.println("x "+ x[i-1]+" y: "+y[k-1]);
+			System.out.println("x "+ x[i-1]+" y: "+y[k-1]+"\n");
 			if(!x[i-1].equals(y[k-1])) {
 				if(matriz[i][k]==matriz[i-1][k])
 					i--;
-				if(matriz[i][k]==matriz[i][k-1])
+				else if(matriz[i][k]==matriz[i][k-1])
 					k--;
 			}
 			else {
