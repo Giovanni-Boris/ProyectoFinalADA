@@ -1,8 +1,8 @@
 import java.util.*;
 
-class Main {
+public class FuerzaBruta {
   public static void main(String[] args) {
-    String alfabeto [] = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","1","2","3","4","5","6","7","8","9","10"};
+	  	/*String alfabeto [] = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","1","2","3","4","5","6","7","8","9","10"};
 		int letras = alfabeto.length;
 		System.out.println(letras);
 		int tamaño = 200;
@@ -24,6 +24,13 @@ class Main {
 		System.out.println();
 		double resultado = Porcentaje(oracion1,oracion2);
 		System.out.println("Resultado "+resultado+"%");
+		*/
+	  	final String[] X = {"A","C","G","G","A"};
+		final String[] Y= {"A","C","T","G"};
+		System.out.println();
+		double resultado = Porcentaje(X,Y);
+		System.out.println("Resultado "+resultado+"%");
+		
   }
 
 	public static double Porcentaje(String [] base ,String [] nueva){
@@ -31,6 +38,7 @@ class Main {
 		for(int i = 0 ; i < base.length ; i++){
 			for(int j = 0 ; j < nueva.length ; j++){
 				if(base[i].equalsIgnoreCase(nueva[j])){
+					System.out.println(base[i] + ":"+nueva[j]);
 					porcentaje++;
 					//System.out.println(base[i]+"="+nueva[j]+"-"+porcentaje); 
 				}
