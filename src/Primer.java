@@ -15,6 +15,45 @@ public class Primer {
 		for(String p : arr) 
 			System.out.println(p);
 	}
+	//Fuerza bruta
+	public static void brutaForce(String x , ArrayList<String> comb){
+	    String maxSub="";
+	    boolean exp;
+	    for(int i= 0; i<comb.size();i++){
+	      if(maxSub.length()>=comb.get(i).length())
+	        continue;
+	      exp = search(x,comb.get(i));
+	      System.out.println(comb.get(i)+" : "+exp);
+	      if(exp)
+	        maxSub = comb.get(i);
+	    }
+	    System.out.println("Max subsecuencia : "+maxSub);
+
+	    
+	  }
+	  //Metodo para buscar la el patron en un cadena
+	  public static boolean search(String a ,String b){
+	    int j=0;
+	    for(int i =0;i<a.length();i++){
+	      if(a.charAt(i)==b.charAt(j))
+	        j++;
+	      if(j==b.length())
+	        return true;
+	    } 
+	    return false;
+	  }
+	  //Registra todas las combinatorios de un arreglo de string en un array list 2^n-1 
+	  //- 1 porque esta implicito el vacio
+	  public static void combinatorias(String[] a, ArrayList<String> b,String inst,int index ){
+	    for(int i = index;i<a.length;i++){
+	      String aux= inst;
+	      inst += a[i]; 
+	      b.add(inst);
+	      System.out.println("b: "+inst + "   :"+b.get(b.size()-1) );
+	      combinatorias(a,b,inst,i+1);
+	      inst = aux;
+	    }
+	  }
 	//Programacion dinamica
 	public static void LCS(String[] x , String[] y) {
 		int[][] c = new int[x.length+1][y.length+1];
