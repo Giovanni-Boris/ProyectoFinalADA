@@ -2,14 +2,23 @@ import java.util.ArrayList;
 
 public class Primer {
 	public static void main(String[]args) {
-		final String[] X = {"A","C","G","G","A"};
-		final String[] Y= {"A","C","T","G"};
-
-		System.out.println("PrimerX");
-		mostrar(X);
-		System.out.println("SegundoY");
-		mostrar(Y);
-		LCS(X,Y);
+		final String texto ="A C G G A";
+		final String patron ="A C T G";
+		String[] x = returnArray(texto);
+		String[] y = returnArray(patron);
+		System.out.println("Primer x");
+		mostrar(x);
+		System.out.println("Segundo y");
+		mostrar(y);
+		System.out.println("Por fuerza bruta");
+		ArrayList<String> comb = new ArrayList<String>();
+	    combinatorias(y, comb,"", 0);
+	    System.out.println("Combinacion de patron: ");
+	    System.out.println(comb);
+	    System.out.println(comb.size());
+	    brutaForce(texto,comb);
+		System.out.println("Por programacion dinamica");
+		LCS(x,y);
 	}
 	public static void mostrar(String[] arr) {
 		for(String p : arr) 
@@ -23,11 +32,14 @@ public class Primer {
 	      if(maxSub.length()>=comb.get(i).length())
 	        continue;
 	      exp = search(x,comb.get(i));
-	      System.out.println(comb.get(i)+" : "+exp);
+	      //System.out.println(comb.get(i)+" : "+exp);
 	      if(exp)
 	        maxSub = comb.get(i);
 	    }
-	    System.out.println("Max subsecuencia : "+maxSub);
+	    if(maxSub.length()!=0)
+	    	System.out.println("Max subsecuencia por fuerza bruta : "+maxSub);
+	    else
+	    	System.out.println("No hay una subsecuencia");
 
 	    
 	  }
@@ -49,7 +61,7 @@ public class Primer {
 	      String aux= inst;
 	      inst += a[i]; 
 	      b.add(inst);
-	      System.out.println("b: "+inst + "   :"+b.get(b.size()-1) );
+	      //System.out.println("b: "+inst + "   :"+b.get(b.size()-1) );
 	      combinatorias(a,b,inst,i+1);
 	      inst = aux;
 	    }
@@ -72,7 +84,7 @@ public class Primer {
 			}
 		}
 		matriz(c);
-		System.out.println(cadena(c,5,4,x,y));
+		System.out.println("Resultado por PD:  "+cadena(c,5,4,x,y));
 
 		
 		
@@ -82,8 +94,8 @@ public class Primer {
 		int i=n; int k=m;
 		String str = "";
 		while(i>0 && k>0) {
-			System.out.println("i : "+i+" k : "+k);
-			System.out.println("x "+ x[i-1]+" y: "+y[k-1]+"\n");
+			//System.out.println("i : "+i+" k : "+k);
+			//System.out.println("x "+ x[i-1]+" y: "+y[k-1]+"\n");
 			if(!x[i-1].equals(y[k-1])) {
 				if(matriz[i][k]==matriz[i-1][k])
 					i--;
@@ -92,7 +104,7 @@ public class Primer {
 			}
 			else {
 				str= x[i-1]+str;
-				System.out.println("str "+str);
+				//System.out.println("str "+str);
 				i--;
 				k--;
 			}			
