@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class Primer {
 	public static void main(String[]args) {
@@ -14,6 +15,7 @@ public class Primer {
 		for(String p : arr) 
 			System.out.println(p);
 	}
+	//Programacion dinamica
 	public static void LCS(String[] x , String[] y) {
 		int[][] c = new int[x.length+1][y.length+1];
 		System.out.println(c.length);
@@ -36,6 +38,7 @@ public class Primer {
 		
 		
 	}
+	//Metodo backtrackin para obtener la string que es la subsecuencia max
 	public static String cadena(int [][] matriz,int n ,int m,String[] x, String[]y) {
 		int i=n; int k=m;
 		String str = "";
@@ -65,6 +68,34 @@ public class Primer {
 			}
 			System.out.println();
 		}
+		
+	}
+	//Metodo que me permite convertir un texto en un  array
+	public static String[] returnArray(String parrafo) {
+		ArrayList<String> vector = new ArrayList<String>();
+		int  i = 0;
+		parrafo = parrafo.trim();
+		String palabra = "";
+		while(i<parrafo.length()) {
+			if(!parrafo.substring(i,i+1).equals(" ")) 
+				palabra += parrafo.substring(i,i+1);
+			else {
+				vector.add(palabra);
+				palabra = "";
+			}
+			if(i==parrafo.length()-1)
+				vector.add(palabra);
+			i++;		
+		}
+		System.out.println(vector);
+		String[] vec = convertir(vector);
+		return vec;
+	}
+	public static String[] convertir(ArrayList<String> arr) {
+		String[] newArr = new String[arr.size()];
+		for(int i= 0;i < arr.size() ;i++)
+			newArr[i] = arr.get(i);
+		return newArr;
 		
 	}
 
